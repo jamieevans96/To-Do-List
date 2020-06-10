@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 25% 35% 40%;
+}
+
+.projectContainer {
+    background-color: #616163;
+    height: 100vh;
+    color: #FFF;
+}
+
+.todoContainer {
+    background-color: #8AE9C1;
+    height: 100vh;
+}
+
+.editContainer {
+    background-color: rgba(138, 233, 193, 0.74);
+    height: 100vh;
+}
+
+button {
+    margin-left: 20px;
+    vertical-align: middle;
+    background: none;
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.17);
+    border-radius: 1px;
+}
+
+.a {
+    border: 2px solid rgb(130, 215, 255);
+    color: rgb(130, 215, 255);
+}
+    
+.b, .c {
+    border: 2px solid rgb(60, 60, 60);
+    color: rgb(60, 60, 60);
+}
+
+.c {
+    padding: 5px 10px;
+    margin: 20px 0;
+}
+
+.d {
+    border: none;
+    padding: 5px 10px;
+    margin: 20px 0;
+    box-shadow: none;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(130, 215, 255);
+    border: 2px solid rgb(130, 215, 255);
+    color: rgb(60, 60, 60);
+    transition: 0.3s;
+}
+
+input[type=checkbox]:checked + h3{
+    text-decoration: line-through;
+}
+
+h1 {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 40px 40px;
+    margin: 0;
+    box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.17);
+}
+
+h3 {
+    cursor: pointer;
+}
+
+.projectList, .todoList, .editList {
+    width: auto;
+    padding: 40px 40px;
+    margin: 0;
+}
+
+.editList input, select{
+    margin-left: 20px;
+    height: 25px;
+    width: 80%;
+    float: right;
+    margin-block-start: 1.2em;
+    margin-block-end: 1em;
+}
+
+.checkbox {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-color: rgb(105, 165, 240);
+}
