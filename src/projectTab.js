@@ -6,20 +6,9 @@ const projectFactory = (name, todoList) => {
 }
 
 function renderProjectTab() {
-    var temp = document.getElementById("projectContainer");
-    while (temp.hasChildNodes()) {
-        temp.removeChild(temp.firstChild);
-    }
+    removeProjectNodes();
     
-    let title = document.createElement('h1');
-    let button = document.createElement('button');
-    title.innerHTML = 'Projects';
-    button.innerHTML = '+';
-    button.classList.add('a');
-    button.setAttribute('id', 'btn');
-    button.addEventListener('click', newProject, {once: true});
-    title.appendChild(button);
-    document.getElementById('projectContainer').appendChild(title);
+    insertProjectHeader();
 
     projectList.forEach(function render(item, index) {
         let outerDiv = document.createElement('div');
@@ -27,6 +16,8 @@ function renderProjectTab() {
         let button = document.createElement('div');
         let header = document.createElement('h3');
 
+        outerDiv.setAttribute('id', 'projectListContainer ' + index)
+        outerDiv.classList.add('projectListContainer');
         innerDiv.classList.add('projectList');
         button.classList.add('d');
         button.innerHTML = '🗑';
@@ -38,20 +29,23 @@ function renderProjectTab() {
         header.addEventListener('click', function() {renderItemTab(index)});
 
         outerDiv.appendChild(innerDiv);
+        outerDiv.appendChild(button);
         innerDiv.appendChild(header);
         document.getElementById('projectContainer').appendChild(outerDiv);
-        document.getElementById('projectContainer').appendChild(button);
     })
 }
 
 function newProject() {
+    removeProjectNodes
+
     let outerDiv = document.createElement('div');
     let innerDiv = document.createElement('div');
     let button = document.createElement('button');
     let input = document.createElement('input');
 
+    outerDiv.classList.add('newProject');
     innerDiv.classList.add('projectList');
-    button.classList.add('a');
+    button.classList.add('e');
     input.setAttribute('id', 'projectInput');
     button.innerHTML = '✔';
     button.addEventListener('click', function confirmProject() {
@@ -64,7 +58,26 @@ function newProject() {
     outerDiv.appendChild(innerDiv);
     innerDiv.appendChild(input);
     document.getElementById('projectContainer').appendChild(outerDiv);
-    document.getElementById('projectContainer').appendChild(button);
+    outerDiv.appendChild(button);
+}
+
+function removeProjectNodes() {
+    var temp = document.getElementById("projectContainer");
+    while (temp.hasChildNodes()) {
+        temp.removeChild(temp.firstChild);
+    } 
+}
+
+function insertProjectHeader() {
+    let title = document.createElement('h1');
+    let button = document.createElement('button');
+    title.innerHTML = 'Projects';
+    button.innerHTML = '+';
+    button.classList.add('a');
+    button.setAttribute('id', 'btn');
+    button.addEventListener('click', newProject, {once: true});
+    title.appendChild(button);
+    document.getElementById('projectContainer').appendChild(title);
 }
 
 export {
